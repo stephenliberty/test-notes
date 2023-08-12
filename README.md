@@ -2,7 +2,6 @@
 
 Easy version: Run the next js development server after running 'npm install'.
 
-You'll want to replace the url in 'components/apollo.ts' - ran out of time.
 
 ```bash
 npm run dev
