@@ -18,7 +18,7 @@ export default function MainHeader() {
   const dropDownMenuRef = useRef(null);
   const [searchStr, setSearchStr] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const timerRef = useRef(null);
+  const timerRef = useRef<ReturnType<typeof setInterval>>();
   const [doSearch, searchRes] = useLazyQuery(SEARCH_QUERY, {
     variables: {
       searchStr
