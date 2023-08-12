@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
         <MainHeader></MainHeader>
-        <NoteListLoader></NoteListLoader>
+        <NoteListLoader selected={null}></NoteListLoader>
     </>
   )
 }
