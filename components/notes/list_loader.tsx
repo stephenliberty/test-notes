@@ -61,6 +61,7 @@ export default function NoteListLoader({selected}) {
       {list.loading && loadingFragment}
       {!list.loading && list.error && errorFragment}
       {!list.loading && list.data && <NoteList selected={selected} data={list.data.list}></NoteList> }
+      {!note.loading && !selected  && <div className={"col-10"}>To create a new note, simply click the &apos;New Note&apos; button above.</div>}
       {!note.loading && selected && note.data && <NoteDataDisplay note={note.data.note}></NoteDataDisplay>}
       </div>
     </div>
