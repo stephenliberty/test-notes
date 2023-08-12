@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 export default function NotesEditor({onSubmit, dataModel}) {
   const [model, setModel] = useState({
@@ -9,12 +9,12 @@ export default function NotesEditor({onSubmit, dataModel}) {
     id: dataModel.id
   })
 
-  function handleSubmit(e:SubmitEvent) {
+  function handleSubmit(e:FormEvent) {
     e.preventDefault();
     onSubmit(model);
   }
 
-  const onChange = (propName:String, propValue:String) => {
+  const onChange = (propName:string, propValue:String) => {
     const newState = {...model}
     newState[propName] = propValue;
     setModel(newState);
@@ -38,7 +38,7 @@ export default function NotesEditor({onSubmit, dataModel}) {
         </div>
         <div className="col-12">
           <label htmlFor="inputNoteContent">Note Content</label>
-          <textarea onChange={(e) => onChange('note', e.target.value)} onFocus={onFocus} value={model.note} required minLength={20} maxLength={200} type="text" className="form-control" id="inputNoteContent" rows="5"></textarea>
+          <textarea onChange={(e) => onChange('note', e.target.value)} onFocus={onFocus} value={model.note} required minLength={20} maxLength={200} className="form-control" id="inputNoteContent" rows={5}></textarea>
         </div>
         <div className="col-12">
           <button className={"btn btn-primary"}>Save</button>

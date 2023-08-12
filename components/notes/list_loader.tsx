@@ -50,7 +50,7 @@ export default function NoteListLoader({selected}) {
   );
 
   const errorFragment = (
-    <div class={"alert alert-danger"}>
+    <div className={"alert alert-danger"}>
       Failed to retrieve data
     </div>
   )
