@@ -1,6 +1,6 @@
 ## Getting Started
 
-Easy version: Run the next js development server
+Easy version: Run the next js development server after running 'npm install'
 
 ```bash
 npm run dev
