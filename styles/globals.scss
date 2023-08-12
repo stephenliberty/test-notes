@@ -1,0 +1,48 @@
+@import "bootstrap/scss/bootstrap";
+
+body,html {
+    background-color: white;
+    height: 100%;
+}
+
+#main-container {
+    @extend .container;
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+    background-color: white;
+    border: 1px solid gray;
+    height: calc(100% - 2em);
+}
+
+input.dirty:invalid,textarea.dirty:invalid {
+    border-color: $danger;
+}
+
+#note_data_container {
+    margin-top: 1em;
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+}
+#note_list_container {
+    height: 100%;
+}
+#note_list {
+    height: 100%;
+    overflow: scroll;
+}
+
+#note_list_wrapper {
+    .small {
+        font-size: .5em;
+    }
+    .list-group-item div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+#search_dropdown {
+    top: 100%;
+}
