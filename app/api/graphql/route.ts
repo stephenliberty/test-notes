@@ -6,9 +6,9 @@ import GetDBConnection from "../../../db"
 import {Database} from "sqlite";
 import {randomUUID} from "crypto";
 import {GraphQLError} from "graphql/error";
-const db:Database = await GetDBConnection();
 
 async function upsertNote(note) {
+  const db = await GetDBConnection();
   //Normally we'd do some heavier validation here, but
   //as this is just a demo let's skip it.
 
@@ -39,6 +39,7 @@ const resolvers = {
 
   Query: {
     note: async function (_, args) {
+      const db = await GetDBConnection();
       const note = await db.get(
     `SELECT
             id, name, note, created_on, updated_on 
@@ -49,6 +50,7 @@ const resolvers = {
       return note
     },
     search: async function (_, args) {
+      const db = await GetDBConnection();
       const notes = await db.all(
         `SELECT 
           id, name, note, created_on, updated_on
@@ -63,6 +65,7 @@ const resolvers = {
       return notes;
     },
     list: async function () {
+      const db = await GetDBConnection();
       const notes = await db.all(
         `SELECT 
           id, name, note, created_on, updated_on
@@ -81,6 +84,7 @@ const resolvers = {
       return upsertNote(note);
     },
     deleteNote: async function (_, {id}) {
+      const db = await GetDBConnection();
       return await db.run('DELETE FROM note WHERE id=:id', {':id': id}).then(() => {
           return true;
         }
